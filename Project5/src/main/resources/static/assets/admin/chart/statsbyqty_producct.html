@@ -1,0 +1,32 @@
+
+    <div class="card">
+        <div class="card-header text-center">
+          <h1>THỐNG KÊ THỐNG KÊ THEO SỐ LƯỢNG SẢN PHẨM</h1>
+        </div>
+       
+        <div class="card-body">
+          <div class="row">
+              <div class="col-md-12 col-xs-12 mb-2">
+					<div>
+						<canvas id="myChart"></canvas>
+					</div>
+				</div>
+              <div class="col-md-12 col-xs-12" >
+					<table class="table table-bordered text-center">
+						<thead>
+							<th>TÊN SẢN PHẨM</th>
+							<th>SL SẢN PHẨM</th>
+						</thead>
+						<tbody>
+							 	<tr ng-repeat="(key, value) in stats">
+							 		<td>{{value[0]}}</td>
+							 		<td>{{value[1]}}</td>
+							 	</tr>
+						</tbody>
+					</table>
+					
+				</div>
+        </div>
+        </div>
+      </div>
+      

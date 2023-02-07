@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+
+<body>
+	<main style="margin-top: 81px"> <!-- section -->
+	<div id="slider" class="section main_slider">
+		<div id="slider" class="section main_slider">
+			<div class="">
+				<div class="row" style="background-color: red;">
+					<div id="rev_slider_4_1_wrapper"
+						class="rev_slider_wrapper fullwidthbanner-container"
+						data-alias="classicslider1"
+						style="margin: 0px auto; background-color: transparent; padding: 0px; margin-top: 0px; margin-bottom: 0px;">
+						<!-- START REVOLUTION SLIDER 5.0.7 auto mode -->
+						<div id="carouselExampleControls" class="carousel slide"
+							data-ride="carousel">
+							<div class="carousel-inner">
+								<div class="carousel-item active">
+									<img class="d-block w-100"
+										src="https://www.asus.com/WebsitesBanner/VN/banners/qrmmrtd8jqzyj0ec/qrmmrtd8jqzyj0ec-0_0_desktop_0_1X.jpg"
+										alt="First slide">
+								</div>
+								<div class="carousel-item">
+									<img class="d-block w-100"
+										src="https://www.asus.com/WebsitesBanner/VN/banners/krwnr6g0sftcvu9d/krwnr6g0sftcvu9d-0_0_desktop_0_1X.jpg?webp"
+										alt="Second slide">
+								</div>
+								<div class="carousel-item">
+									<img class="d-block w-100"
+										src="https://www.asus.com/WebsitesBanner/VN/banners/mkkan3yipc5kxw2b/mkkan3yipc5kxw2b-0_0_desktop_0_1X.jpg?webp"
+										alt="Third slide">
+								</div>
+							</div>
+							<a class="carousel-control-prev" 
+								role="button" data-slide="prev"> <span
+								class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+								class="sr-only">Previous</span>
+							</a> <a class="carousel-control-next" 
+								role="button" data-slide="next"> <span
+								class="carousel-control-next-icon" aria-hidden="true"></span> <span
+								class="sr-only">Next</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end section -->
+	<div class="section padding_layout_1">
+		<div class="container">
+			<div class="row">
+				<div id="carousel-example" class="carousel slide hidden-xs"
+					data-ride="carousel">
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner">
+						<div class="item active">
+							<div class="row">
+								<div th:each="c:${cates}" class="col-sm-3"
+									style="margin-top: 10px;">
+									<div>
+										<div class="col-item">
+											<div class="separator clear-left">
+												<p class="btn-details">[[${c.name}]]</p>
+											</div>
+											<div class="photo">
+												<img th:src="@{|/assets/images/${c.image}|}"
+													class="img-responsive" />
+											</div>
+											<div class="info">
+												<div class="separator clear-left">
+													<p class="btn-details">
+														<i class="fa fa-list"></i><a
+															th:href="@{|/product/list?cid=${c.id}|}"
+															class="hidden-sm">Xem sản phẩm</a>
+													</p>
+												</div>
+												<div class="clearfix"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="row">
+								<div th:each="b:${brands}" class="col-sm-3"
+									style="margin-top: 10px;">
+									<div>
+										<div class="col-item">
+											<div class="separator clear-left">
+												<p class="btn-details">[[${b.name}]]</p>
+											</div>
+											<div class="photo">
+												<img th:src="@{|/assets/admin/imageB/${b.image}|}"
+													class="img-responsive" />
+											</div>
+											<div class="info">
+												<div class="separator clear-left">
+													<p class="btn-details">
+														<i class="fa fa-list"></i><a
+															th:href="@{|/product/list?bid=${b.id}|}"
+															class="hidden-sm">Xem sản phẩm</a>
+													</p>
+												</div>
+												<div class="clearfix"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6" style="margin-left: 65px;">
+							<!-- Controls -->
+							<div class="controls pull-right hidden-xs">
+								<a class="btnprev" href="#carousel-example" data-slide="prev"><i
+									class="fa fa-chevron-circle-left" aria-hidden="true"></i></a> <a
+									class="btnnext" href="#carousel-example" data-slide="next"><i
+									class="fa fa-chevron-circle-right" aria-hidden="true"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="full">
+						<div class="main_heading text_align_center">
+							<h2>DANH MỤC VÀ HÃNG NỔI BẬT</h2>
+							<!-- <p class="large">Fastest repair service with best price!</p> -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" style="margin-top: 35px">
+				<div class="col-md-12">
+					<div class="full margin_bottom_30">
+						<div class="accordion border_circle">
+							<div class="bs-example">
+								<div class="panel-group" id="accordion">
+									<div class="panel panel-default">
+										<div class="panel-heading">
+
+											<p class="panel-title">
+												<a data-toggle="collapse" data-parent="#accordion"
+													href="#collapseOne"><i class="fa fa-star-o"
+													aria-hidden="true"></i>Khuyến mãi hot<i></i></a>
+											</p>
+											<div class="panel-body">
+												<div class="slide">
+													<div class="row">
+														<div th:each="dis:${listdiscount}"
+															class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all"
+															style="margin-top: 15px;">
+															<div class="product_list" style="border: 1px solid #17a5e9;">
+																<div class="product_img">
+																<span style="width: 100%;height: 30px; background-color: red;color: white;font-size: 20px;font-style: italic;">SALE [[${dis.percentage}]] %</span>
+																	<img class="img-responsive"
+																		th:src="@{|/assets/images/${dis.product.image}|}">
+																		
+																</div>
+																<div class="product_detail_btm">
+																	<div class="center">
+																		<h4>
+																			<a th:href="@{|/product/detail/${dis.product.id}|}"
+																				th:utext="${dis.product.name}"></a>
+																		</h4>
+																		
+																	</div>
+																	<div class="starratin">
+																		<div class="center">
+																			<i class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star-o" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																	<div class="product_price">
+																		<p>
+																			<span class="old_price">[[${#numbers.formatDecimal(dis.product.price,
+																				0, 'WHITESPACE', 0, 'POINT')}]] VND</span><br> 
+																				<span 
+																				class="new_price">
+																				[[${#numbers.formatDecimal(dis.product.price*(100-dis.percentage)/100,
+																				0, 'WHITESPACE', 0, 'POINT')}]] VND</span>
+																				
+																		</p>
+																	</div>
+																	<div class="icons_product">
+																		<div class="control">
+																			<a class="success"
+																				th:attr="ng-click=@{|cart.addsale(${dis.product.id},${dis.percentage})|}"><i
+																				class="fa fa-cart-plus" aria-hidden="true"></i></a> <a
+																				href=""><i class="fa fa-heart"
+																				aria-hidden="true"></i></a> <a
+																				th:href="@{|/product/detail/${dis.product.id}|}"><i
+																				class="fa fa-search" aria-hidden="true"></i></a>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div>
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<p class="panel-title">
+												<a data-toggle="collapse" data-parent="#accordion"
+													href="#collapseTwo"><i class="fa fa-star"></i> Giờ vàng
+													giá sốc<i class="fa fa-angle-down"></i></a>
+											</p>
+										</div>
+										<div id="collapseTwo" class="panel-collapse collapse">
+											<div class="panel-body">
+												<div class="slide">
+													<div class="row">
+														<div
+															class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
+															<div class="product_list">
+																<div class="product_img">
+																	<img class="img-responsive"
+																		src="https://dlcdnwebimgs.asus.com/gain/106624BC-25F5-44FA-8BF1-DB16672534C4/w717/h525"
+																		alt="">
+																</div>
+																<div class="product_detail_btm">
+																	<div class="center">
+																		<h4>
+																			<a href="it_shop_detail.html">ROG Flow Z13 (2022)
+																				GZ301ZE-DS91-CA</a>
+																		</h4>
+																	</div>
+																	<div class="starratin">
+																		<div class="center">
+																			<i class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star-o" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																	<div class="product_price">
+																		<p>
+																			<span class="old_price">$15.00</span> – <span
+																				class="new_price">$25.00</span>
+																		</p>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div
+															class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
+															<div class="product_list">
+																<div class="product_img">
+																	<img class="img-responsive"
+																		src="https://dlcdnwebimgs.asus.com/gain/106624BC-25F5-44FA-8BF1-DB16672534C4/w717/h525"
+																		alt="">
+																</div>
+																<div class="product_detail_btm">
+																	<div class="center">
+																		<h4>
+																			<a href="it_shop_detail.html">ROG Flow Z13 (2022)
+																				ROG Flow Z13 (2022) GZ301ZE-XS94-B</a>
+																		</h4>
+																	</div>
+																	<div class="starratin">
+																		<div class="center">
+																			<i class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star-o" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																	<div class="product_price">
+																		<p>
+																			<span class="old_price">$24.99</span><span
+																				class="new_price"> $12.49</span>
+																		</p>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div
+															class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
+															<div class="product_list">
+																<div class="product_img">
+																	<img class="img-responsive"
+																		src="https://dlcdnwebimgs.asus.com/gain/A09C5B64-3AE4-4B00-B5B6-1FF96B1814C5/w717/h525"
+																		alt="">
+																</div>
+																<div class="product_detail_btm">
+																	<div class="center">
+																		<h4>
+																			<a href="it_shop_detail.html">ROG Flow X13 (2022)
+
+																				GV301RC-PH74</a>
+																		</h4>
+																	</div>
+																	<div class="starratin">
+																		<div class="center">
+																			<i class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star-o" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																	<div class="product_price">
+																		<p>
+																			<span class="old_price">$24.99</span><span
+																				class="new_price"> $12.49</span>
+																		</p>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div
+															class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
+															<div class="product_list">
+																<div class="product_img">
+																	<img class="img-responsive"
+																		src="https://dlcdnwebimgs.asus.com/gain/E40CF262-59E8-4811-A4C2-6BEB8EB9DC18/w717/h525"
+																		alt="">
+																</div>
+																<div class="product_detail_btm">
+																	<div class="center">
+																		<h4>
+																			<a href="it_shop_detail.html">ROG Flow X13 (2022)
+																				ROG Flow X13 (2022) GV301RE-LJ129W</a>
+																		</h4>
+																	</div>
+																	<div class="starratin">
+																		<div class="center">
+																			<i class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star-o" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																	<div class="product_price">
+																		<p>
+																			<span class="old_price">$15.00</span> – <span
+																				class="new_price">$25.00</span>
+																		</p>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<p class="panel-title">
+												<a data-toggle="collapse" data-parent="#accordion"
+													href="#collapseThree"><i class="fa fa-star"></i> Sản
+													phẩm đang giảm giá<i class="fa fa-angle-down"></i></a>
+											</p>
+										</div>
+										<div id="collapseThree" class="panel-collapse collapse">
+											<div class="panel-body">
+												<div class="slide">
+													<div class="row">
+														<div
+															class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
+															<div class="product_list">
+																<div class="product_img">
+																	<img class="img-responsive"
+																		src="https://dlcdnwebimgs.asus.com/gain/106624BC-25F5-44FA-8BF1-DB16672534C4/w717/h525"
+																		alt="">
+																</div>
+																<div class="product_detail_btm">
+																	<div class="center">
+																		<h4>
+																			<a href="it_shop_detail.html">ROG Flow Z13 (2022)
+																				GZ301ZE-DS91-CA</a>
+																		</h4>
+																	</div>
+																	<div class="starratin">
+																		<div class="center">
+																			<i class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star-o" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																	<div class="product_price">
+																		<p>
+																			<span class="old_price">$15.00</span> – <span
+																				class="new_price">$25.00</span>
+																		</p>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div
+															class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
+															<div class="product_list">
+																<div class="product_img">
+																	<img class="img-responsive"
+																		src="https://dlcdnwebimgs.asus.com/gain/106624BC-25F5-44FA-8BF1-DB16672534C4/w717/h525"
+																		alt="">
+																</div>
+																<div class="product_detail_btm">
+																	<div class="center">
+																		<h4>
+																			<a href="it_shop_detail.html">ROG Flow Z13 (2022)
+																				ROG Flow Z13 (2022) GZ301ZE-XS94-B</a>
+																		</h4>
+																	</div>
+																	<div class="starratin">
+																		<div class="center">
+																			<i class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star-o" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																	<div class="product_price">
+																		<p>
+																			<span class="old_price">$24.99</span><span
+																				class="new_price"> $12.49</span>
+																		</p>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div
+															class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
+															<div class="product_list">
+																<div class="product_img">
+																	<img class="img-responsive"
+																		src="https://dlcdnwebimgs.asus.com/gain/A09C5B64-3AE4-4B00-B5B6-1FF96B1814C5/w717/h525"
+																		alt="">
+																</div>
+																<div class="product_detail_btm">
+																	<div class="center">
+																		<h4>
+																			<a href="it_shop_detail.html">ROG Flow X13 (2022)
+
+																				GV301RC-PH74</a>
+																		</h4>
+																	</div>
+																	<div class="starratin">
+																		<div class="center">
+																			<i class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star-o" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																	<div class="product_price">
+																		<p>
+																			<span class="old_price">$24.99</span><span
+																				class="new_price"> $12.49</span>
+																		</p>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div
+															class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
+															<div class="product_list">
+																<div class="product_img">
+																	<img class="img-responsive"
+																		src="https://dlcdnwebimgs.asus.com/gain/E40CF262-59E8-4811-A4C2-6BEB8EB9DC18/w717/h525"
+																		alt="">
+																</div>
+																<div class="product_detail_btm">
+																	<div class="center">
+																		<h4>
+																			<a href="it_shop_detail.html">ROG Flow X13 (2022)
+																				ROG Flow X13 (2022) GV301RE-LJ129W</a>
+																		</h4>
+																	</div>
+																	<div class="starratin">
+																		<div class="center">
+																			<i class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star-o" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																	<div class="product_price">
+																		<p>
+																			<span class="old_price">$15.00</span> – <span
+																				class="new_price">$25.00</span>
+																		</p>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<p class="panel-title">
+												<a data-toggle="collapse" data-parent="#accordion"
+													href="#collapseFour"><i class="fa fa-star"
+													aria-hidden="true"></i>Laptops bán chạy<i
+													class="fa fa-angle-down"></i></a>
+											</p>
+										</div>
+										<div id="collapseFour" class="panel-collapse collapse in">
+											<div class="panel-body">
+												<div class="slide">
+													<div class="row">
+														<div
+															class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
+															<div class="product_list">
+																<div class="product_img">
+																	<img class="img-responsive"
+																		src="https://dlcdnwebimgs.asus.com/gain/106624BC-25F5-44FA-8BF1-DB16672534C4/w717/h525"
+																		alt="">
+																</div>
+																<div class="product_detail_btm">
+																	<div class="center">
+																		<h4>
+																			<a href="it_shop_detail.html">ROG Flow Z13 (2022)
+																				GZ301ZE-DS91-CA</a>
+																		</h4>
+																	</div>
+																	<div class="starratin">
+																		<div class="center">
+																			<i class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star-o" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																	<div class="product_price">
+																		<p>
+																			<span class="old_price">$15.00</span> – <span
+																				class="new_price">$25.00</span>
+																		</p>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div
+															class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
+															<div class="product_list">
+																<div class="product_img">
+																	<img class="img-responsive"
+																		src="https://dlcdnwebimgs.asus.com/gain/106624BC-25F5-44FA-8BF1-DB16672534C4/w717/h525"
+																		alt="">
+																</div>
+																<div class="product_detail_btm">
+																	<div class="center">
+																		<h4>
+																			<a href="it_shop_detail.html">ROG Flow Z13 (2022)
+																				ROG Flow Z13 (2022) GZ301ZE-XS94-B</a>
+																		</h4>
+																	</div>
+																	<div class="starratin">
+																		<div class="center">
+																			<i class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star-o" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																	<div class="product_price">
+																		<p>
+																			<span class="old_price">$24.99</span><span
+																				class="new_price"> $12.49</span>
+																		</p>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div
+															class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
+															<div class="product_list">
+																<div class="product_img">
+																	<img class="img-responsive"
+																		src="https://dlcdnwebimgs.asus.com/gain/A09C5B64-3AE4-4B00-B5B6-1FF96B1814C5/w717/h525"
+																		alt="">
+																</div>
+																<div class="product_detail_btm">
+																	<div class="center">
+																		<h4>
+																			<a href="it_shop_detail.html">ROG Flow X13 (2022)
+
+																				GV301RC-PH74</a>
+																		</h4>
+																	</div>
+																	<div class="starratin">
+																		<div class="center">
+																			<i class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star-o" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																	<div class="product_price">
+																		<p>
+																			<span class="old_price">$24.99</span><span
+																				class="new_price"> $12.49</span>
+																		</p>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div
+															class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
+															<div class="product_list">
+																<div class="product_img">
+																	<img class="img-responsive"
+																		src="https://dlcdnwebimgs.asus.com/gain/E40CF262-59E8-4811-A4C2-6BEB8EB9DC18/w717/h525"
+																		alt="">
+																</div>
+																<div class="product_detail_btm">
+																	<div class="center">
+																		<h4>
+																			<a href="it_shop_detail.html">ROG Flow X13 (2022)
+																				ROG Flow X13 (2022) GV301RE-LJ129W</a>
+																		</h4>
+																	</div>
+																	<div class="starratin">
+																		<div class="center">
+																			<i class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star" aria-hidden="true"></i> <i
+																				class="fa fa-star-o" aria-hidden="true"></i>
+																		</div>
+																	</div>
+																	<div class="product_price">
+																		<p>
+																			<span class="old_price">$15.00</span> – <span
+																				class="new_price">$25.00</span>
+																		</p>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!-- section --> <!-- end section --> <!-- end section --> <!-- Modal -->
+	<div class="modal fade" id="search_bar" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<i class="fa fa-close"></i>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div
+							class="col-lg-8 col-md-8 col-sm-8 offset-lg-2 offset-md-2 offset-sm-2 col-xs-10 col-xs-offset-1">
+							<div class="navbar-search">
+								<form action="#" method="get" id="search-global-form"
+									class="search-global">
+									<input type="text" placeholder="Type to search"
+										autocomplete="off" name="s" id="search" value=""
+										class="search-global__input">
+									<button class="search-global__btn">
+										<i class="fa fa-search"></i>
+									</button>
+									<div class="search-global__note">Begin typing your search
+										above and press return to search.</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- <div class="control">
+        <button class="success">Show Success</button>
+        <button class="warning">Show Warning</button>
+        <button class="error">Show Error</button>
+    </div> -->
+	<div id="toasts"></div>
+	<!-- End Model search bar --> </main>
+
+</body>
+</html>
+

@@ -1,0 +1,44 @@
+<div class="container">
+	<div class="table">
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title">Đơn hàng</h4>
+
+				<select class="form-control" id="exampleFormControlSelect1" ng-model="chose" ng-init=" chose = 'Chưa xác nhận'">
+					<option value="Đã giao">Đã xác nhận</option>
+					<option value="Chưa xác nhận">Chưa xác nhận</option>
+				</select>
+				
+				<table class="table">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Tên</th>
+							<th>Ngày</th>
+							<th>Địa chỉ</th>
+							<th>Tình trạng</th>
+
+						</tr>
+					</thead>
+					<tbody ng-repeat="o in listOrder | filter: {orderStatus: chose} | orderBy: '-createDate'">
+
+						<tr>
+							<td ng-click="linkDetail(o.id)" style="cursor: pointer;">{{o.id}}</td>
+							<td ng-click="linkDetail(o.id)" style="cursor: pointer;">{{o.account.fullname}}</td>
+							<td ng-click="linkDetail(o.id)" style="cursor: pointer;">{{o.createDate | date: 'dd-MM-yyyy'}}</td>
+							<td ng-click="linkDetail(o.id)" style="cursor: pointer;">{{o.address}}</td>
+							<td style="cursor: pointer;">
+								<a ng-if="o.orderStatus == 'Chưa xác nhận'"
+								class="badge badge-warning" ng-click="xacNhan(o)">Chưa xác nhận</a> 
+								
+								<a ng-if="o.orderStatus == 'Đã giao'"
+								class="badge badge-primary" ng-click="xacNhan(o)">Đã xác nhận</a>
+							</td>
+						</tr>
+
+					</tbody> 
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
